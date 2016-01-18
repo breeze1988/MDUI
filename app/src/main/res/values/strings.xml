@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MDUI</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- ok http-->
+    <string name="okHttp_get">okHttp get</string>
+    <string name="okHttp_post">okHttp post</string>
+    <string name="okHttp_header">okHttp header</string>
+    <string name="okHttp_post_string">okHttp post string</string>
+    <string name="okHttp_post_stream">okHttp post stream</string>
+    <string name="okHttp_post_form">okHttp post form</string>
+    <string name="okHttp_post_file">okHttp post file</string>
+    <string name="okHttp_post_multipart">okHttp post multipart</string>
+    <string name="okHttp_cache">okHttp cache</string>
+    <string name="okHttp_gson">okHttp gson</string>
+
+    <string name="okHttp_response_cache">okHttp response cache</string>
+
+    <string name="okHttp_response">okHttp response</string>
+</resources>

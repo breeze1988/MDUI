@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!" />
+
+            <Button
+                android:id="@+id/btn_okHttpGet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_get" />
+
+            <EditText
+                android:id="@+id/tx_okHttpGetResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+
+            <Button
+                android:id="@+id/btn_okHttpPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post" />
+
+            <EditText
+                android:id="@+id/tx_okHttpPosteResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+
+            <Button
+                android:id="@+id/btn_okHttpHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_header" />
+
+            <EditText
+                android:id="@+id/tx_okHttpHeaderResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_header" />
+            <Button
+                android:id="@+id/btn_okHttpPostString"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_string" />
+
+            <EditText
+                android:id="@+id/tx_okHttpPostString"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostStream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_stream" />
+
+            <EditText
+                android:id="@+id/tx_okHttpPostStream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+            <Button
+                android:id="@+id/btn_okHttpPostForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_form" />
+
+            <EditText
+                android:id="@+id/tx_okHttpPostForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_file" />
+
+            <EditText
+                android:id="@+id/tx_okHttpPostFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+            <Button
+                android:id="@+id/btn_okHttpPostMultipart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_multipart" />
+
+            <EditText
+                android:id="@+id/tx_okHttpPostMultipart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+
+            <Button
+            android:id="@+id/btn_okHttpCacheResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/okHttp_response_cache" />
+
+            <EditText
+                android:id="@+id/tx_okHttpCacheReponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+
+            <Button
+                android:id="@+id/btn_okHttGsonResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_gson" />
+
+            <EditText
+                android:id="@+id/tx_okHttpGsonReponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/okHttp_response" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
