@@ -5,11 +5,10 @@ import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.CacheResponse;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
-import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -32,7 +31,12 @@ public class HttpUtil {
     public HttpUtil(File cacheDirectory){
         int cacheSize = 10 * 1024 *1024;
         Cache cache = new Cache(cacheDirectory,cacheSize);
-        client.newBuilder().cache(cache).build();
+        //设置cache和超时
+        client.newBuilder().cache(cache)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10,TimeUnit.SECONDS)
+                .readTimeout(30,TimeUnit.SECONDS)
+                .build();
     }
 
 
@@ -255,9 +259,9 @@ public class HttpUtil {
         return null;
     }
 
-    public static String  getGsonData(String url){
+    public static String getGsonData(String url){
         Request request = new Request.Builder()
-                .url("https://api.github.com/gists/c2a7c39532239ff261be")
+                .url(url)
                 .build();
         Gson gson = new Gson();
         try {
@@ -283,4 +287,40 @@ public class HttpUtil {
     static class GistFile {
         String content;
     }
+
+    public static String testTimeout(String url){
+        //设置cache和超时
+        client.newBuilder()
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10,TimeUnit.SECONDS)
+                .readTimeout(30,TimeUnit.SECONDS)
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Response response = null;
+        try {
+          response = client.newCall(request).execute();
+            return "Response completed : " + response;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return response + "";
+        }
+    }
+
+
+    /*使用OkHttpClient，所有的HTTP Client配置包括代理设置、超时设置、缓存设置。当你需要为单个call改变配置的时候，clone 一个 OkHttpClient。这个api将会返回一个浅拷贝（shallow copy），
+    你可以用来单独自定义。下面的例子中，我们让一个请求是500ms的超时、另一个是3000ms的超时。*/
+//    public static String testConfigCall(String url){
+//        Request request = new Request.Builder()
+//                .url(url)
+//                .build();
+//        StringBuffer sb = new StringBuffer();
+//
+//        Response response1 = client.
+//    }
+
+//    public static String testAutu(String){
+//        client.authenticator();
+//    }
 }

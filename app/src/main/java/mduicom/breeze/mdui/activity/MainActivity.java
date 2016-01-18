@@ -1,15 +1,12 @@
 package mduicom.breeze.mdui.activity;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,7 +27,6 @@ import java.util.concurrent.Executors;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import mduicom.breeze.mdui.R;
-import mduicom.breeze.mdui.fragment.OkHttpTestFragment;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 import util.HttpUtil;
@@ -87,6 +84,21 @@ public class MainActivity extends AppCompatActivity
     @Bind(R.id.tx_okHttpGsonReponse)
     EditText mOkHttpGsonEdit;
 
+
+    @Bind(R.id.btn_okHttTimeout)
+    Button mOkHttpTimeoutBtn;
+    @Bind(R.id.btn_okHttCallCancle)
+    Button mOkHttpCallCancleBtn;
+    @Bind(R.id.btn_okHttConfigCall)
+    Button mOkHttpConfigCall;
+    @Bind(R.id.btn_okHttHandleAuth)
+    Button mOkHttpHandleAuthBtn;
+
+    @Bind(R.id.tx_okHttpResponse)
+    TextView mOkHttpResponse;
+
+
+
     private ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
     private static final int HANDLER_WHAT_OKHTTP_GET_RESOPONSE = 0;
@@ -99,6 +111,8 @@ public class MainActivity extends AppCompatActivity
     private static final int HANDLER_WHAT_OKHTTP_POST_MULTIPART_RESPONSE = 7;
     private static final int HANDLER_WHAT_OKHTTP_CACHE_RESPONSE = 8;
     private static final int HANDLER_WHAT_OKHTTP_GSON_RESPONSE = 9;
+
+    private static final int HANDLER_WHAT_OKHTTP_RESPONSE = 10;
 
 
     private MyHandler mHandler = new MyHandler(this);
@@ -155,6 +169,10 @@ public class MainActivity extends AppCompatActivity
         mOkHttpPostMultipartBtn.setOnClickListener(this);
         mOkHttpCacheReponseBtn.setOnClickListener(this);
         mOkHttpGsonReponseBtn.setOnClickListener(this);
+        mOkHttpTimeoutBtn.setOnClickListener(this);
+        mOkHttpCallCancleBtn.setOnClickListener(this);
+        mOkHttpConfigCall.setOnClickListener(this);
+        mOkHttpHandleAuthBtn.setOnClickListener(this);
 
 //        try {
 //            ft = getFragmentManager().beginTransaction();
@@ -187,6 +205,8 @@ public class MainActivity extends AppCompatActivity
             mOkHttpCacheEdit.setText(content);
         }else if (HANDLER_WHAT_OKHTTP_GSON_RESPONSE == msg.what) {
             mOkHttpGsonEdit.setText(content);
+        }else if (HANDLER_WHAT_OKHTTP_RESPONSE == msg.what) {
+            mOkHttpResponse.setText(content);
         }
     }
 
@@ -281,10 +301,39 @@ public class MainActivity extends AppCompatActivity
             cachedThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
-                    mHandler.sendMessage(mHandler.obtainMessage(HANDLER_WHAT_OKHTTP_GSON_RESPONSE, HttpUtil.getGsonData("https://api.github.com/repos/square/okhttp/issues")));
+                    mHandler.sendMessage(mHandler.obtainMessage(HANDLER_WHAT_OKHTTP_GSON_RESPONSE, HttpUtil.getGsonData("https://api.github.com/gists/c2a7c39532239ff261be")));
+                }
+            });
+        }else if (v == mOkHttpTimeoutBtn) {
+            cachedThreadPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    mHandler.sendMessage(mHandler.obtainMessage(HANDLER_WHAT_OKHTTP_RESPONSE, HttpUtil.testTimeout("http://httpbin.org/delay/2")));
+                }
+            });
+        }else if (v == mOkHttpCallCancleBtn) {
+            cachedThreadPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    mHandler.sendMessage(mHandler.obtainMessage(HANDLER_WHAT_OKHTTP_RESPONSE, HttpUtil.getGsonData("https://api.github.com/repos/square/okhttp/issues")));
+                }
+            });
+        }else if (v == mOkHttpConfigCall) {
+            cachedThreadPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    mHandler.sendMessage(mHandler.obtainMessage(HANDLER_WHAT_OKHTTP_RESPONSE, HttpUtil.getGsonData("https://api.github.com/repos/square/okhttp/issues")));
+                }
+            });
+        }else if (v == mOkHttpHandleAuthBtn) {
+            cachedThreadPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    mHandler.sendMessage(mHandler.obtainMessage(HANDLER_WHAT_OKHTTP_RESPONSE, HttpUtil.getGsonData("https://api.github.com/repos/square/okhttp/issues")));
                 }
             });
         }
+
     }
 
     @Override
