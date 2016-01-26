@@ -3,37 +3,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
     tools:context="mduicom.breeze.mdui.fragment.OkHttpTestFragment">
 
-    <Button
-        android:id="@+id/btn_okHttpGet"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/okHttp_get"
-        android:layout_margin="10dp"
-        />
-    <TextView
-        android:id="@+id/tx_okHttpGetResponse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/okHttp_response"
-        android:layout_margin="10dp"
-        />
-    <Button
-        android:id="@+id/btn_okHttpPost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/okHttp_post"
-        android:layout_margin="10dp"
-        />
-    <TextView
-        android:id="@+id/tx_okHttpPosteResponse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/okHttp_response"
-        android:layout_margin="10dp"
-        />
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello okHttp!" />
+
+            <Button
+                android:id="@+id/btn_okHttpGet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_get" />
+
+            <Button
+                android:id="@+id/btn_okHttpPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post" />
+
+            <Button
+                android:id="@+id/btn_okHttpHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_header" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostString"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_string" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostStream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_stream" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_form" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_file" />
+
+            <Button
+                android:id="@+id/btn_okHttpPostMultipart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_post_multipart" />
+
+
+            <Button
+                android:id="@+id/btn_okHttpCacheResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_response_cache" />
+
+            <Button
+                android:id="@+id/btn_okHttGsonResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_gson" />
+
+            <Button
+                android:id="@+id/btn_okHttTimeout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_time_out" />
+
+            <Button
+                android:id="@+id/btn_okHttCallCancle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_cancle_call" />
+
+            <Button
+                android:id="@+id/btn_okHttConfigCall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_config_call" />
+
+            <Button
+                android:id="@+id/btn_okHttHandleAuth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/okHttp_Auth" />
+
+            <TextView
+                android:id="@+id/tx_okHttpResponse"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:hint="okHttp response text" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

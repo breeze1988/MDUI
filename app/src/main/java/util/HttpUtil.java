@@ -184,12 +184,16 @@ public class HttpUtil {
                 .post(requestBody)
                 .build();
 
+        Response response = null;
         try {
-            Response response = client.newCall(request).execute();
+            response = client.newCall(request).execute();
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
             return response.body().string();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally{
+            if(response != null){
+            }
         }
           return null;
     }
