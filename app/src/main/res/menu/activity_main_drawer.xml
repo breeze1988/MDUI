@@ -27,9 +27,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="SwipeRefreshLayout" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/CoordinatorLayout"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Coordinator Layout" />
         </menu>
     </item>
 
