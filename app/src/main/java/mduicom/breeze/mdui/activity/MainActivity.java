@@ -20,6 +20,7 @@ import android.view.View;
 import butterknife.ButterKnife;
 import mduicom.breeze.mdui.R;
 import mduicom.breeze.mdui.fragment.OkHttpTestFragment;
+import mduicom.breeze.mdui.fragment.RetrofitFragment;
 import mduicom.breeze.mdui.fragment.SwipToRefrshFragment;
 
 
@@ -128,6 +129,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this,CoordinatorLayoutListActivity.class));
         } else if (id == R.id.okHttp){
             Fragment fragment = OkHttpTestFragment.newInstance("","");
+            fragmentManager.beginTransaction()
+                    .replace(R.id.main_content,fragment)
+                    .commit();
+        } else if(id == R.id.retrofit){
+            Fragment fragment = new RetrofitFragment();
             fragmentManager.beginTransaction()
                     .replace(R.id.main_content,fragment)
                     .commit();

@@ -1,0 +1,85 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mduicom.breeze.mdui.fragment.RetrofitFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="retrofit 示例" />
+
+
+            <Button
+                android:id="@+id/SimpleService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SimpleService" />
+
+            <Button
+                android:id="@+id/SimpleMockService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SimpleMockService" />
+
+            <Button
+                android:id="@+id/JsonQueryParameters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="JsonQueryParameters" />
+
+            <Button
+                android:id="@+id/JsonAndXmlConverters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="JsonAndXmlConverters" />
+
+            <Button
+                android:id="@+id/ErrorHandlingCallAdapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="ErrorHandlingCallAdapter" />
+
+            <Button
+                android:id="@+id/DeserializeErrorBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="DeserializeErrorBody" />
+
+            <Button
+                android:id="@+id/ChunkingConverter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="ChunkingConverter" />
+
+            <TextView
+                android:id="@+id/tx_RetrofitResponse"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:hint="retofit response text" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

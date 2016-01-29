@@ -1,7 +1,6 @@
 package mduicom.breeze.mdui.fragment;
 
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,14 +12,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.File;
-import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import mduicom.breeze.mdui.R;
-import mduicom.breeze.mdui.activity.MainActivity;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 import util.HttpUtil;

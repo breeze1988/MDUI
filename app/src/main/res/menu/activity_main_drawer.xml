@@ -39,6 +39,11 @@
                 android:id="@+id/okHttp"
                 android:icon="@drawable/ic_menu_share"
                 android:title="okHttp" />
+
+            <item
+                android:id="@+id/retrofit"
+                android:icon="@drawable/ic_menu_share"
+                android:title="retrofit" />
             <item
                 android:id="@+id/images"
                 android:icon="@drawable/ic_menu_send"
