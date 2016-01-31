@@ -13,27 +13,31 @@ public class AccessToken extends BaseResponse {
     @SerializedName("token_type")
     private String tokenType;
 
-    @SerializedName("expires_in")
-    private Long expiresIn;
-
-    @SerializedName("refresh_token")
-    private String refreshToken;
+//    @SerializedName("expires_in")
+//    private Long expiresIn;
+//
+//    @SerializedName("refresh_token")
+//    private String refreshToken;
 
     public String getAccessToken() {
         return accessToken;
     }
 
     public String getTokenType() {
+        // OAuth requires uppercase Authorization HTTP header value for token type
+        if(!Character.isUpperCase(tokenType.charAt(0))){
+            tokenType = Character.toString(tokenType.charAt(0)).toUpperCase() + tokenType.substring(1);
+        }
         return tokenType;
     }
 
-    public Long getExpiresIn() {
-        return expiresIn;
-    }
-
-    public String getRefreshToken() {
-        return refreshToken;
-    }
+//    public Long getExpiresIn() {
+//        return expiresIn;
+//    }
+//
+//    public String getRefreshToken() {
+//        return refreshToken;
+//    }
 
     @Override
     public String toString() {
@@ -45,8 +49,8 @@ public class AccessToken extends BaseResponse {
         return "AccessToken{" +
                 "accessToken='" + accessToken + '\'' +
                 ", tokenType='" + tokenType + '\'' +
-                ", expiresIn=" + expiresIn +
-                ", refreshToken='" + refreshToken + '\'' +
+//                ", expiresIn=" + expiresIn +
+//                ", refreshToken='" + refreshToken + '\'' +
                 '}';
     }
 }

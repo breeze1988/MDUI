@@ -71,6 +71,34 @@
                 android:layout_margin="10dp"
                 android:text="ChunkingConverter" />
 
+            <Button
+                android:id="@+id/BasicAuthentication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Basic Authentication" />
+
+            <Button
+                android:id="@+id/oauth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="oauth" />
+
+            <Button
+                android:id="@+id/uploadFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="uploadFile" />
+
+            <Button
+                android:id="@+id/HawkCredentials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="HawkCredentials" />
+
             <TextView
                 android:id="@+id/tx_RetrofitResponse"
                 android:padding="10dp"
