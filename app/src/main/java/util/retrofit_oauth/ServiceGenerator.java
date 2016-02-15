@@ -1,9 +1,6 @@
 package util.retrofit_oauth;
 
 
-import android.net.Uri;
-import android.util.Base64;
-
 import com.wealdtech.hawk.HawkClient;
 import com.wealdtech.hawk.HawkCredentials;
 
@@ -17,7 +14,6 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Url;
 
 /**
  * Created by Administrator on 2016/1/29.
