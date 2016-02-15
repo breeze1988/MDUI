@@ -29,6 +29,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import util.retrofit_oauth.GithubApi;
 import util.retrofit_oauth.HawkCredentialsService;
 import util.retrofit_oauth.RetrofitAuthentication;
 import util.retrofit_oauth.RetrofitUploadFile;
@@ -136,11 +137,24 @@ public class RetrofitFragment extends Fragment implements View.OnClickListener {
         } else if (v == BasicAuthentication) {
 
         } else if (v == oauth) {
+//            cachedThreadPool.execute(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Message msg = new Message();
+//                    try {
+//                        msg.obj = GithubApi.getAuthorization();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                    mHandler.sendMessage(msg);
+//                }
+//            });
 
-            Intent intent = new Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/" + "login")
-            );
+
+//            Intent intent = new Intent(
+//                    Intent.ACTION_VIEW,
+//                    Uri.parse("https://github.com/" + "login")
+//            );
         } else if (v == uploadFile) {
             uploadFile2server();
         } else if (v == HawkCredentialsbtn){
@@ -175,12 +189,12 @@ public class RetrofitFragment extends Fragment implements View.OnClickListener {
         Call<String> call = service.upload(requestBody, description);
         call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Response<String> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
                 Log.v("Upload", "success");
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
                 Log.e("Upload", t.getMessage());
             }
         });

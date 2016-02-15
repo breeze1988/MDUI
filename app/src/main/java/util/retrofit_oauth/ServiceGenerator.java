@@ -14,8 +14,9 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.GsonConverterFactory;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Url;
 
 /**
@@ -32,6 +33,7 @@ public final class ServiceGenerator {
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(API_BASE_URL)
+                    .addCallAdapterFactory(new ErrorHandlingCallAdapter.ErrorHandlingCallAdapterFactory())
                     .addConverterFactory(GsonConverterFactory.create());
 
     private ServiceGenerator(){}
@@ -48,6 +50,12 @@ public final class ServiceGenerator {
         builder = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create());
+
+        //log
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.HEADERS);
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpClient.addInterceptor(logging);
 
         if(token != null){
                 httpClient.addInterceptor(new Interceptor() {
@@ -72,15 +80,21 @@ public final class ServiceGenerator {
    /* 在请求中加入验证*/
     public static <S> S createServiceAuthourization(Class<S> serviceClass,String username,String password){
         if(username != null && password != null){
-            String credentials = username + ":" + password;
-            final String basic = "Basic " + Base64.encodeToString(credentials.getBytes(),Base64.NO_WRAP);
+            final String credentials = username + ":" + password;
+//            final String basic = "Basic " + Base64.encodeToString(credentials.getBytes(),Base64.NO_WRAP);
+
+            //log
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.HEADERS);
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+            httpClient.addInterceptor(logging);
 
             httpClient.addInterceptor(new Interceptor() {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     Request original = chain.request();
                     Request.Builder requestBuilder = original.newBuilder()
-                            .header("Authorization", basic)
+                            .header("Authorization", credentials)
                             .header("Accept", "applicaton/json")
                             .method(original.method(), original.body());
                     Request request = requestBuilder.build();
@@ -128,7 +142,8 @@ public final class ServiceGenerator {
                 @Override
                 public Response intercept(Interceptor.Chain chain) throws IOException {
                     Request original = chain.request();
-                    URI uri = Uri.parse(original.url());
+//                    URI uri = Uri.parse(original.url());
+                    URI uri = null;
                     String method = original.method();
 
                     String header =
@@ -152,6 +167,8 @@ public final class ServiceGenerator {
         Retrofit retrofit = builder.client(client).build();
         return retrofit.create(serviceClass);
     }
+
+
 
 
 //    //token
