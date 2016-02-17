@@ -45,9 +45,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="retrofit" />
             <item
-                android:id="@+id/images"
+                android:id="@+id/glide"
                 android:icon="@drawable/ic_menu_send"
-                android:title="图片" />
+                android:title="glide" />
         </menu>
     </item>
 

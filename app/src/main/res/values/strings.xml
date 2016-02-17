@@ -75,4 +75,5 @@ Praesent tincidunt lorem sit amet mi consequat cursus. Interdum et malesuada fam
     <string name="title_activity_ioactivity_example">IOActivityExample</string>
     <string name="title_activity_flexible_space_example">FlexibleSpaceExampleActivity</string>
     <string name="title_activity_rx_android">RxAndroidActivity</string>
+    <string name="title_activity_glide">GlideActivity</string>
 </resources>

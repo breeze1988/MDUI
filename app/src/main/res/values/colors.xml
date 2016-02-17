@@ -16,4 +16,7 @@
     <color name="brand_primary">#3E50B4</color>
     <color name="brand_primary_dark">#3646A8</color>
     <color name="brand_accent">#FE3E80</color>
+
+    <color name="list_item_bg_color">#474759</color>
+    <color name="gray">#9c9ca1</color>
 </resources>

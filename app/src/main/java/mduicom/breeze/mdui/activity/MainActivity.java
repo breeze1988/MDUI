@@ -137,8 +137,8 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.main_content,fragment)
                     .commit();
-        } else if (id == R.id.images){
-
+        } else if (id == R.id.glide){
+            startActivity(new Intent(MainActivity.this,GlideActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
