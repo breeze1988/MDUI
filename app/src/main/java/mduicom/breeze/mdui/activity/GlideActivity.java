@@ -1,8 +1,6 @@
 package mduicom.breeze.mdui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -20,6 +18,7 @@ import butterknife.ButterKnife;
 import mduicom.breeze.mdui.R;
 import mduicom.breeze.mdui.customview.FreeRockViewPager;
 import mduicom.breeze.mdui.customview.PagerSlidingTabStrip;
+import mduicom.breeze.mdui.fragment.GlideRecycleviewFragment;
 import mduicom.breeze.mdui.fragment.GlideSigleImageFragment;
 
 public class GlideActivity extends AppCompatActivity implements View.OnClickListener,FreeRockViewPager.OnPrePageChangeListener, ViewPager.OnPageChangeListener{
@@ -30,8 +29,7 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
     PagerSlidingTabStrip slidingTabs;
     @Bind(R.id.pager)
     FreeRockViewPager pager;
-    @Bind(R.id.fab)
-    FloatingActionButton fab;
+
 
     public static final int TAB_GLIDE_SINGLE_IMAGE = 0;
     public static final int TAB_GLIDE_SINGLE_RECYCLEVIEW = 2;
@@ -47,20 +45,14 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
         setSupportActionBar(toolbar);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         pager.setAdapter(getPagerAdapter());
         pager.setOffscreenPageLimit(3);
         pager.setCurrentItem(0);
-        pager.setBackgroundColor(getResources().getColor(R.color.list_item_bg_color));
+        pager.setBackgroundColor(getResources().getColor(android.R.color.white));
 
         slidingTabs.setTextSize(16);
-        slidingTabs.setTextColorResource(R.color.gray);
+        slidingTabs.setTextColorResource(R.color.orange);
         slidingTabs.setSelectTextColorResource(R.color.green);
         slidingTabs.setUnderlineHeight(0);
         slidingTabs.setTabPaddingLeftRight(dip2px(20));
@@ -82,7 +74,7 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
     private PagerAdapter getPagerAdapter() {
         String[] content = {"单个图片","recycle view"};
         mFragments.add(new GlideSigleImageFragment());
-        mFragments.add(new GlideSigleImageFragment());
+        mFragments.add(new GlideRecycleviewFragment());
         return new FragmentAdapter(getSupportFragmentManager(),mFragments,content);
     }
 

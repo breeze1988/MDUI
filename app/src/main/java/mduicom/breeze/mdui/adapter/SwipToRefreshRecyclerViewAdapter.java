@@ -55,7 +55,6 @@ public class SwipToRefreshRecyclerViewAdapter  extends RecyclerView.Adapter<Swip
     public class CatNamesViewHolder extends RecyclerView.ViewHolder {
         TextView mCatNameTextView;
 
-
         public CatNamesViewHolder(View itemView) {
             super(itemView);
             mCatNameTextView = (TextView) itemView.findViewById(R.id.cat_name_textview);
