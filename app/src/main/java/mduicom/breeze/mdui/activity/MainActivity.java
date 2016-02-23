@@ -4,6 +4,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -16,6 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import butterknife.ButterKnife;
 import mduicom.breeze.mdui.R;
@@ -46,6 +52,17 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
+        ImageView imageview = (ImageView)findViewById(R.id.main_imageview);
+
+        Bitmap b = Bitmap.createBitmap(100,100, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(b);
+        Paint paint = new Paint();
+        paint.setColor(Color.GREEN);
+        canvas.drawText("BREEZE DEMO", 20, 20, paint);
+
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(b);
+        imageview.setBackground(bitmapDrawable);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
