@@ -121,6 +121,7 @@ public class CustomDemoViewGroup extends ViewGroup{
         //此次滚动的X轴终点位置
         int scrollFinalX = mOffsetX + scrollWidth;
         //不能移除边界
+
         if(scrollFinalX > 300 || scrollFinalX < 0){
             return;
         }
