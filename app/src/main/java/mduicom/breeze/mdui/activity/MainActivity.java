@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity
 
     private FragmentTransaction ft = null;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
